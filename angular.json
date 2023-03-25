@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "ngrx-create-entity": {
+    "ngrx-entity-builder": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/ngrx-create-entity",
+            "outputPath": "dist/ngrx-entity-builder",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
@@ -65,10 +65,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "ngrx-create-entity:build:production"
+              "browserTarget": "ngrx-entity-builder:build:production"
             },
             "development": {
-              "browserTarget": "ngrx-create-entity:build:development"
+              "browserTarget": "ngrx-entity-builder:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -76,7 +76,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "ngrx-create-entity:build"
+            "browserTarget": "ngrx-entity-builder:build"
           }
         },
         "test": {
