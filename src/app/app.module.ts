@@ -8,6 +8,7 @@ import { reducers, metaReducers } from './store';
 import * as fromGlobal from './store/reducers/global.reducer';
 import { EffectsModule } from '@ngrx/effects';
 import { GlobalEffects } from './store/effects/global.effects';
+import {RouterModule} from "@angular/router";
 
 @NgModule({
   declarations: [
@@ -19,7 +20,7 @@ import { GlobalEffects } from './store/effects/global.effects';
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
     StoreModule.forRoot(reducers, { metaReducers }),
     EffectsModule.forRoot([GlobalEffects]),
-    // isDevMode() ? StoreDevtoolsModule.instrument() : []
+    StoreDevtoolsModule.instrument()
   ],
   providers: [],
   bootstrap: [AppComponent],
