@@ -1,0 +1,8 @@
+<div
+  class="book-container"
+  *ngIf="{ book: book$ | async, author: author$ | async } as subs">
+  <div class="book" *ngIf="subs.author && subs.book">
+    {{ subs.book.title }}
+    {{ subs.author.name }}
+  </div>
+</div>

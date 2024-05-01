@@ -5,15 +5,19 @@ import { ActionCreator } from '@ngrx/store/src/models';
 import { ReducerTypes } from '@ngrx/store/src/reducer_creator';
 import { entitySelectors } from './entity-selectors';
 import { MemoizedSelector } from '@ngrx/store/src/selector';
-export const createEntity = <T, A extends object>(
-  featureSelector: MemoizedSelector<object, object>,
+export const createEntity = <S, T, A extends object>(
+  featureSelector: MemoizedSelector<S, S>,
   featureKey: string,
   overwriteInitial: A = {} as A,
   ...ons: ReducerTypes<EntityState<T> & A, readonly ActionCreator[]>[]
 ) => {
   const adapter: EntityAdapter<T> = createEntityAdapter<T>();
   const actions = entityActions<T, A>(featureKey);
-  const selectors = entitySelectors<T, A>(featureSelector, featureKey, adapter);
+  const selectors = entitySelectors<S, T, A>(
+    featureSelector,
+    featureKey,
+    adapter
+  );
   const initial = adapter.getInitialState({ ...overwriteInitial });
   type state = EntityState<T> & A;
   const reducer = createReducer<state>(

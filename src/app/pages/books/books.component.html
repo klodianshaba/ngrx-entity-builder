@@ -1,0 +1,8 @@
+<div class="books">
+  <div class="book" *ngFor="let book of books$ | async" (click)="onBook(book)">
+    <div>{{ book.title }}</div>
+    <div>{{ book.pages }}</div>
+    <div>{{ book.year }}</div>
+    <div>{{ book.rating }}</div>
+  </div>
+</div>

@@ -1,13 +1,14 @@
 import { createSelector } from '@ngrx/store';
 import { EntityAdapter, EntityState, Predicate } from '@ngrx/entity';
 import { MemoizedSelector } from '@ngrx/store/src/selector';
-export const entitySelectors = <T, A>(
-  featureSelector: MemoizedSelector<object, object>,
+export const entitySelectors = <S, T, A>(
+  featureSelector: MemoizedSelector<S, S>,
   featureKey: string,
   adapter: EntityAdapter<T>
 ) => {
-  const selectState = createSelector<object, object, EntityState<T> & A>(
+  const selectState = createSelector<S, S, EntityState<T> & A>(
     featureSelector,
+    // @ts-ignore
     state => (featureKey ? state[featureKey] : state)
   );
   const adapterSelectors = adapter.getSelectors();
@@ -18,7 +19,7 @@ export const entitySelectors = <T, A>(
   const selectAll = createSelector(selectState, adapterSelectors.selectAll);
   const selectIds = createSelector(selectState, adapterSelectors.selectIds);
   const selectTotal = createSelector(selectState, adapterSelectors.selectTotal);
-  const selectById = (id: number) =>
+  const selectById = (id: number | undefined | null) =>
     createSelector(selectAll, data =>
       data.find(item => (item as any)?.id == id)
     );

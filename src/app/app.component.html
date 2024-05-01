@@ -1,11 +1,17 @@
-{{ title }} <br />
-{{ totalBooks }} <br />
-<button
-  (click)="loadTotalBooks()"
-  class="dd"
-  [ngClass]="{ dd: true }"
-  [ngStyle]="{ ff: true }">
-  Load Total Books
-</button>
-<br />
-<router-outlet></router-outlet>
+<header>
+  <div class="title">Ngrx Entity Builder</div>
+  <nav>
+    <div class="nav-item" routerLink="/books">
+      <span>({{ totalBooks$ | async }})</span>
+      <span> Books</span>
+    </div>
+    <div class="nav-item" routerLink="/authors">
+      <span>({{ totalAuthors$ | async }})</span>
+      <span> Authors</span>
+    </div>
+  </nav>
+</header>
+<main>
+  <router-outlet></router-outlet>
+</main>
+<footer>&copy; Klodian Shaba</footer>

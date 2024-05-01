@@ -1,0 +1,26 @@
+nav, header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header{
+  .title{
+    font-size: 18px;
+    font-weight: bold;
+  }
+  nav{
+    .nav-item{
+      padding: 10px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .nav-item:hover{
+      background-color: purple;
+      color: white;
+    }
+  }
+}
+main{
+  padding: 1rem 0;
+}
