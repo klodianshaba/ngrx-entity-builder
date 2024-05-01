@@ -25,4 +25,8 @@ export class BooksComponent {
   onBook(book: BookModel) {
     this.router.navigate(['/book', book.id]).then();
   }
+  onDelete(event: Event, book: BookModel) {
+    event.stopPropagation();
+    this.store.dispatch(booksEntity.actions.removeOne({ id: book.id }));
+  }
 }
