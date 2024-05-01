@@ -1,19 +1,19 @@
-.books{
+.books {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 20px;
-  .book{
+  .book {
     padding: 10px;
     border: 1px solid #eae7e7;
     border-radius: 5px;
     cursor: pointer;
     transition: 0.3s;
   }
-  .book:hover{
-    -webkit-box-shadow: 0 0 8px 0 rgba(234,231,231,1);
-    -moz-box-shadow: 0 0 8px 0 rgba(234,231,231,1);
-    box-shadow: 0 0 8px 0 rgba(234,231,231,1);
+  .book:hover {
+    -webkit-box-shadow: 0 0 8px 0 rgba(234, 231, 231, 1);
+    -moz-box-shadow: 0 0 8px 0 rgba(234, 231, 231, 1);
+    box-shadow: 0 0 8px 0 rgba(234, 231, 231, 1);
     transform: translateY(-5px);
     background-color: purple;
     color: white;
