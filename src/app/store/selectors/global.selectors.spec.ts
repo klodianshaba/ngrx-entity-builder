@@ -4,7 +4,7 @@ import { selectGlobalState } from './global.selectors';
 describe('Global Selectors', () => {
   it('should select the feature state', () => {
     const result = selectGlobalState({
-      [fromGlobal.globalFeatureKey]: {}
+      [fromGlobal.globalFeatureKey]: {},
     });
 
     expect(result).toEqual({});

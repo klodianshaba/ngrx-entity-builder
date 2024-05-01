@@ -7,5 +7,5 @@ export const selectGlobalState = createFeatureSelector<fromGlobal.GlobalState>(
 
 export const selectTotalBooks = createSelector(
   selectGlobalState,
-  (state) => state.totalBooks
+  state => state.totalBooks
 );

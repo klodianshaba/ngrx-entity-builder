@@ -1,5 +1,11 @@
-
-{{title}} <br>
-{{totalBooks}} <br>
-<button (click)="loadTotalBooks()">Load Total Books</button> <br>
+{{ title }} <br />
+{{ totalBooks }} <br />
+<button
+  (click)="loadTotalBooks()"
+  class="dd"
+  [ngClass]="{ dd: true }"
+  [ngStyle]="{ ff: true }">
+  Load Total Books
+</button>
+<br />
 <router-outlet></router-outlet>

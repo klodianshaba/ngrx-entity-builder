@@ -1,4 +1,4 @@
-import {NgModule, isDevMode, CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
+import { NgModule, isDevMode, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -8,22 +8,20 @@ import { reducers, metaReducers } from './store';
 import * as fromGlobal from './store/reducers/global.reducer';
 import { EffectsModule } from '@ngrx/effects';
 import { GlobalEffects } from './store/effects/global.effects';
-import {RouterModule} from "@angular/router";
+import { RouterModule } from '@angular/router';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
     StoreModule.forRoot(reducers, { metaReducers }),
     EffectsModule.forRoot([GlobalEffects]),
-    StoreDevtoolsModule.instrument()
+    StoreDevtoolsModule.instrument(),
   ],
   providers: [],
   bootstrap: [AppComponent],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA]
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
-export class AppModule { }
+export class AppModule {}

@@ -4,13 +4,17 @@ import {
   ActionReducerMap,
   createFeatureSelector,
   createSelector,
-  MetaReducer
+  MetaReducer,
 } from '@ngrx/store';
-import {globalFeatureKey, globalReducer, GlobalState} from "./reducers/global.reducer";
+import {
+  globalFeatureKey,
+  globalReducer,
+  GlobalState,
+} from './reducers/global.reducer';
 export interface State {
-  [globalFeatureKey]: GlobalState
+  [globalFeatureKey]: GlobalState;
 }
 export const reducers: ActionReducerMap<State> = {
-  [globalFeatureKey]: globalReducer
+  [globalFeatureKey]: globalReducer,
 };
 export const metaReducers: MetaReducer<State>[] = isDevMode() ? [] : [];
