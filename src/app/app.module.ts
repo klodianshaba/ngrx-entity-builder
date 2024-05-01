@@ -11,9 +11,9 @@ import { reducers, metaReducers } from './store';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() , connectInZone: true}),
     StoreModule.forRoot(reducers, { metaReducers }),
-    StoreDevtoolsModule.instrument(),
+    StoreDevtoolsModule.instrument({connectInZone: true}),
   ],
   providers: [],
   bootstrap: [AppComponent],
