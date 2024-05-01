@@ -1,14 +1,13 @@
 <div class="books">
-  <div
-    class="book"
-    *ngFor="let book of books$ | async; let index = index"
-    (click)="onBook(book)">
-    <div>Book: {{ book.title }}</div>
-    <div>Pages: {{ book.pages }}</div>
-    <div>Year: {{ book.year }}</div>
-    <div>Rating: {{ book.rating }}</div>
-    <div>
-      <button (click)="onDelete($event, book)">delete</button>
+  @for (book of books(); track book) {
+    <div class="book" (click)="onBook(book)">
+      <div>Book: {{ book.title }}</div>
+      <div>Pages: {{ book.pages }}</div>
+      <div>Year: {{ book.year }}</div>
+      <div>Rating: {{ book.rating }}</div>
+      <div>
+        <button (click)="onDelete($event, book)">delete</button>
+      </div>
     </div>
-  </div>
+  }
 </div>

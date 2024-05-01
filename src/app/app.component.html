@@ -2,11 +2,11 @@
   <div class="title">Ngrx Entity Builder</div>
   <nav>
     <div class="nav-item" routerLink="/books">
-      <span>({{ totalBooks$ | async }})</span>
+      <span>({{ totalBooks() }})</span>
       <span> Books</span>
     </div>
     <div class="nav-item" routerLink="/authors">
-      <span>({{ totalAuthors$ | async }})</span>
+      <span>({{ totalAuthors() }})</span>
       <span> Authors</span>
     </div>
   </nav>

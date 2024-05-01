@@ -1,5 +1,4 @@
 import { MemoizedSelector } from '@ngrx/store/src/selector';
-import { EntityAdapter, EntityState, Predicate } from '@ngrx/entity';
 import { createSelector } from '@ngrx/store';
 
 export const featureSelectors = <T, A>(
@@ -8,10 +7,12 @@ export const featureSelectors = <T, A>(
 ) => {
   const selectState = createSelector<object, object, T & A>(
     featureSelector,
+    // @ts-ignore
     state => (featureKey ? state[featureKey] : state)
   );
 
   const selectByProperty = (property: string) =>
+    // @ts-ignore
     createSelector(selectState, data => (data ? data[property] : data));
   return { selectState, selectByProperty };
 };

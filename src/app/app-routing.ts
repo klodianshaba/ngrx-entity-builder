@@ -1,7 +1,6 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { Routes } from '@angular/router';
 
-const routes: Routes = [
+export const routes: Routes = [
   { path: '', redirectTo: 'books', pathMatch: 'full' },
   {
     path: 'books',
@@ -19,9 +18,3 @@ const routes: Routes = [
       import('./pages/authors/authors.component').then(m => m.AuthorsComponent),
   },
 ];
-
-@NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule],
-})
-export class AppRoutingModule {}

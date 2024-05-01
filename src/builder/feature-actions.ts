@@ -1,5 +1,4 @@
 import { createAction, props } from '@ngrx/store';
-import { EntityMap, EntityMapOne, Predicate, Update } from '@ngrx/entity';
 
 export const featureActions = <T, A>(featureKey: string) => {
   const load = createAction(

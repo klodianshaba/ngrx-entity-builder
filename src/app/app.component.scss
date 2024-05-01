@@ -5,6 +5,9 @@ nav, header{
 }
 
 header{
+  background-color: purple;
+  padding: 10px;
+  color: white;
   .title{
     font-size: 18px;
     font-weight: bold;
@@ -16,7 +19,7 @@ header{
       cursor: pointer;
     }
     .nav-item:hover{
-      background-color: purple;
+      background-color: #a424a4;
       color: white;
     }
   }

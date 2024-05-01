@@ -1,7 +1,23 @@
-import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { bootstrapApplication } from '@angular/platform-browser';
+import { AppComponent } from './app/app.component';
+import { provideRouter } from '@angular/router';
+import { routes } from './app/app-routing';
+import { importProvidersFrom, isDevMode } from '@angular/core';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { StoreModule } from '@ngrx/store';
+import { metaReducers, reducers } from './app/store';
 
-import { AppModule } from './app/app.module';
-
-platformBrowserDynamic()
-  .bootstrapModule(AppModule)
-  .catch(err => console.error(err));
+bootstrapApplication(AppComponent, {
+  providers: [
+    provideRouter(routes),
+    importProvidersFrom(
+      StoreDevtoolsModule.instrument({
+        maxAge: 25,
+        logOnly: !isDevMode(),
+        connectInZone: true,
+      }),
+      StoreModule.forRoot(reducers, { metaReducers }),
+      StoreDevtoolsModule.instrument({ connectInZone: true })
+    ),
+  ],
+}).then(ref => {});

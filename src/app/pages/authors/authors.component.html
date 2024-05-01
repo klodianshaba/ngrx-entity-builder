@@ -1,1 +1,8 @@
-<p>authors works!</p>
+<div class="authors">
+  @for (author of authors(); track author) {
+    <div class="book">
+      <div>Author: {{ author.name }}</div>
+      <div>Address: {{ author.address }}</div>
+    </div>
+  }
+</div>
