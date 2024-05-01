@@ -20,4 +20,4 @@ bootstrapApplication(AppComponent, {
       StoreDevtoolsModule.instrument({ connectInZone: true })
     ),
   ],
-}).then(ref => {});
+}).then();

@@ -4,7 +4,7 @@ import { State } from '../../store';
 import { ActivatedRoute } from '@angular/router';
 import { authorsEntity, booksEntity } from '../../store/entities';
 import { BookModel } from '../../models/book.model';
-import { Observable, switchMap } from 'rxjs';
+import { switchMap } from 'rxjs';
 import { AuthorModel } from '../../models/author.model';
 import { AsyncPipe } from '@angular/common';
 import { toSignal } from '@angular/core/rxjs-interop';
