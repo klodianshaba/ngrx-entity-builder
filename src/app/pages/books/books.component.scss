@@ -5,17 +5,22 @@
   gap: 20px;
   .book {
     padding: 10px;
-    border: 1px solid #eae7e7;
     border-radius: 5px;
     cursor: pointer;
     transition: 0.3s;
+    box-shadow: var(--mdc-protected-button-container-elevation-shadow);
   }
   .book:hover {
-    -webkit-box-shadow: 0 0 8px 0 rgba(234, 231, 231, 1);
-    -moz-box-shadow: 0 0 8px 0 rgba(234, 231, 231, 1);
-    box-shadow: 0 0 8px 0 rgba(234, 231, 231, 1);
     transform: translateY(-5px);
-    background-color: purple;
+    box-shadow: var(--mdc-protected-button-hover-container-elevation-shadow);
+    background-color: rgb(194, 129, 192);
     color: white;
+  }
+  .add-book {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 50px;
+    min-height: 100px;
   }
 }

@@ -1,13 +1,19 @@
 <div class="books">
   @for (book of books(); track book) {
-    <div class="book" (click)="onBook(book)">
-      <div>Book: {{ book.title }}</div>
-      <div>Pages: {{ book.pages }}</div>
-      <div>Year: {{ book.year }}</div>
-      <div>Rating: {{ book.rating }}</div>
+    <div matRipple class="book">
       <div>
-        <button (click)="onDelete($event, book)">delete</button>
+        <strong> {{ book.title }}</strong>
+      </div>
+      <div>{{ book.year }}</div>
+      <div>
+        <button mat-icon-button color="primary" (click)="updateOne(book)">
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button mat-icon-button color="warn" (click)="removeOne(book)">
+          <mat-icon>delete</mat-icon>
+        </button>
       </div>
     </div>
   }
+  <div class="book add-book" (click)="addOne()"><mat-icon>add</mat-icon></div>
 </div>
