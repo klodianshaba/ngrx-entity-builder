@@ -16,6 +16,7 @@ bootstrapApplication(AppComponent, {
       connectInZone: true,
       maxAge: 25,
       logOnly: !isDevMode(),
-    }), provideAnimationsAsync(),
+    }),
+    provideAnimationsAsync(),
   ],
 }).then();
