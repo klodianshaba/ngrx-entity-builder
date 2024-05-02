@@ -6,6 +6,7 @@ import { isDevMode } from '@angular/core';
 import { provideStoreDevtools } from '@ngrx/store-devtools';
 import { provideStore } from '@ngrx/store';
 import { metaReducers, reducers } from './app/store';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
 bootstrapApplication(AppComponent, {
   providers: [
@@ -15,6 +16,6 @@ bootstrapApplication(AppComponent, {
       connectInZone: true,
       maxAge: 25,
       logOnly: !isDevMode(),
-    }),
+    }), provideAnimationsAsync(),
   ],
 }).then();
