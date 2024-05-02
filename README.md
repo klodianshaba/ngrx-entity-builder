@@ -1,27 +1,152 @@
-# NgrxEntityBuilder
+# Ngrx Entity Builder
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.0.4.
+Ngrx utilities taking rid of complexity and boilerplate code
 
-## Development server
+## Quick Links
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+[Demo](https://klodianshaba.github.io/ngrx-entity-builder/)
 
-## Code scaffolding
+## CreateEntity
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Create entity generic function returns an object containing\
+✔ feature key\
+✔ adapter\
+✔ reducer\
+✔ selectors\
+✔ actions
 
-## Build
+```typescript
+export const entityFeatureKey = 'entity';
+export const entity = createEntity<State, EntityModel, AdditionalEntityModel>(
+    selectState,
+    entityFeatureKey
+);
+```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## State
 
-## Running unit tests
+```typescript
+export interface State {
+    [entityFeatureKey]: EntityState<EntityModel>;
+}
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+export const reducers: ActionReducerMap<State> = {
+    [entityFeatureKey]: entity.reducer,
+};
+```
 
-## Running end-to-end tests
+## Provide Store
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+```typescript
+bootstrapApplication(AppComponent, {
+    providers: [
+        provideStore(reducers, { metaReducers }),
+    ],
+});
+```
 
-## Further help
+That's it! we are all done 🚀
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## Using Entity Selectors 
+
+```typescript
+this.store.select(
+    entity.selectors.selectState
+);
+this.store.select(
+    entity.selectors.selectEntities
+);
+this.store.select(
+    entity.selectors.selectAll
+);
+this.store.select(
+    entity.selectors.selectIds
+);
+this.store.select(
+    entity.selectors.selectTotal
+);
+this.store.select(
+    entity.selectors.selectById(1)
+);
+this.store.select(
+    entity.selectors.selectByIds([1,2])
+);
+this.store.select(
+    entity.selectors.selectByPredicate(entity => entity.isActive)
+);
+```
+
+## Using Entity Actions
+
+```typescript
+this.store.dispatch(
+    entity.actions.setAll(entities)
+);
+this.store.dispatch(
+    entity.actions.setMany(entities)
+);
+this.store.dispatch(
+    entity.actions.setOne(entity)
+);
+this.store.dispatch(
+    entity.actions.addOne(entity)
+);
+this.store.dispatch(
+    entity.actions.addMany(entities)
+);
+this.store.dispatch(
+    entity.actions.unshift(entities)
+);
+this.store.dispatch(
+    entity.actions.updateOne(
+        { id: 1, changes: entity }
+    )
+);
+this.store.dispatch(
+    entity.actions.updateMany(
+        [
+            { id: 1, changes: entity },
+            { id: 2, changes: entity }
+        ]
+    )
+);
+this.store.dispatch(
+    entity.actions.updateAdditional(entityAdditional)
+);
+this.store.dispatch(
+    entity.actions.upsertOne(entity)
+);
+this.store.dispatch(
+    entity.actions.upsertMany(entities)
+);
+this.store.dispatch(
+    entity.actions.mapOne(
+        {
+          id: 1,
+          map: entity => {
+              return { ...entity, title }
+          }
+        }
+    )
+);
+this.store.dispatch(
+    entity.actions.mapMany(
+        entity => {
+            return { ...entity, title };
+        }
+    )
+);
+this.store.dispatch(
+    entity.actions.removeOne(1)
+);
+this.store.dispatch(
+    entity.actions.removeMany([1, 2])
+);
+this.store.dispatch(
+    entity.actions.removePredicate(entity => !entity.isActive)
+);
+this.store.dispatch(
+    entity.actions.clear()
+);
+```
+
