@@ -22,11 +22,12 @@ export class BooksComponent {
     this.books = toSignal(this.store.select(booksEntity.selectors.selectAll));
   }
   updateOne(book: BookModel) {
-    const title = Math.random().toString(16).slice(8);
-    const year =
-      Math.floor(Math.random() * (new Date().getFullYear() - 2000)) + 2000;
+    const randomBook = this.getRandomBook();
     this.store.dispatch(
-      booksEntity.actions.updateOne({ id: book.id, changes: { title, year } })
+      booksEntity.actions.updateOne({
+        id: book.id,
+        changes: { title: randomBook.title, year: randomBook.year },
+      })
     );
   }
   removeOne(book: BookModel) {
