@@ -16,11 +16,11 @@ export const createFeature = <T, A extends object>(
   type state = T & A;
   const reducer = createReducer<state>(
     overwriteInitial,
-    on(actions.load, (state, { data }) => ({
+    on(actions.loadAction, (state, { data }) => ({
       ...state,
       ...data,
     })),
-    on(actions.update, (state, { updates }) => ({
+    on(actions.updateAction, (state, { updates }) => ({
       ...state,
       ...updates,
     })),
