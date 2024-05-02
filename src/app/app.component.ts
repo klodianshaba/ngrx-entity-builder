@@ -28,13 +28,9 @@ export class AppComponent {
     this.loadBooks();
   }
   loadAuthors() {
-    this.store.dispatch(
-      authorsEntity.actions.setAll({ entities: authorsDatasource })
-    );
+    this.store.dispatch(authorsEntity.actions.setAll(authorsDatasource));
   }
   loadBooks() {
-    this.store.dispatch(
-      booksEntity.actions.setAll({ entities: booksDatasource })
-    );
+    this.store.dispatch(booksEntity.actions.setAll(booksDatasource));
   }
 }

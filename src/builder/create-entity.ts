@@ -22,70 +22,70 @@ export const createEntity = <S, T, A extends object>(
   type state = EntityState<T> & A;
   const reducer = createReducer<state>(
     initial,
-    on(actions.setAll, (state, { entities }) => ({
+    on(actions.setAllAction, (state, { entities }) => ({
       ...state,
       ...adapter.setAll(entities, state),
     })),
-    on(actions.setMany, (state, { entities }) => ({
+    on(actions.setManyAction, (state, { entities }) => ({
       ...state,
       ...adapter.setMany(entities, state),
     })),
-    on(actions.setOne, (state, { entity }) => ({
+    on(actions.setOneAction, (state, { entity }) => ({
       ...state,
       ...adapter.setOne(entity, state),
     })),
-    on(actions.addOne, (state, { entity }) => ({
+    on(actions.addOneAction, (state, { entity }) => ({
       ...state,
       ...adapter.addOne(entity, state),
     })),
-    on(actions.addMany, (state, { entities }) => ({
+    on(actions.addManyAction, (state, { entities }) => ({
       ...state,
       ...adapter.addMany(entities, state),
     })),
-    on(actions.unshift, (state, { entities }) => ({
+    on(actions.unshiftAction, (state, { entities }) => ({
       ...state,
       ...adapter.setAll(
         [...entities, ...adapter.getSelectors().selectAll(state)],
         state
       ),
     })),
-    on(actions.updateOne, (state, { update }) => ({
+    on(actions.updateOneAction, (state, { update }) => ({
       ...state,
       ...adapter.updateOne(update, state),
     })),
-    on(actions.updateMany, (state, { updates }) => ({
+    on(actions.updateManyAction, (state, { updates }) => ({
       ...state,
       ...adapter.updateMany(updates, state),
     })),
-    on(actions.updateAdditional, (state, { updates }) => ({
+    on(actions.updateAdditionalAction, (state, { updates }) => ({
       ...state,
       ...updates,
     })),
-    on(actions.upsertOne, (state, { entity }) => ({
+    on(actions.upsertOneAction, (state, { entity }) => ({
       ...state,
       ...adapter.upsertOne(entity, state),
     })),
-    on(actions.upsertMany, (state, { entities }) => ({
+    on(actions.upsertManyAction, (state, { entities }) => ({
       ...state,
       ...adapter.upsertMany(entities, state),
     })),
-    on(actions.mapOne, (state, { entityMap }) => ({
+    on(actions.mapOneAction, (state, { entityMap }) => ({
       ...state,
       ...adapter.mapOne(entityMap, state),
     })),
-    on(actions.mapMany, (state, { entityMap }) => ({
+    on(actions.mapManyAction, (state, { entityMap }) => ({
       ...state,
       ...adapter.map(entityMap, state),
     })),
-    on(actions.removeOne, (state, { id }) => ({
+    on(actions.removeOneAction, (state, { id }) => ({
       ...state,
       ...adapter.removeOne(id, state),
     })),
-    on(actions.removeMany, (state, { ids }) => ({
+    on(actions.removeManyAction, (state, { ids }) => ({
       ...state,
       ...adapter.removeMany(ids, state),
     })),
-    on(actions.removePredicate, (state, { predicate }) => ({
+    on(actions.removePredicateAction, (state, { predicate }) => ({
       ...state,
       ...adapter.removeMany(predicate, state),
     })),

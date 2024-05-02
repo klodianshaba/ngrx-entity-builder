@@ -25,6 +25,6 @@ export class BooksComponent {
   }
   onDelete(event: Event, book: BookModel) {
     event.stopPropagation();
-    this.store.dispatch(booksEntity.actions.removeOne({ id: book.id }));
+    this.store.dispatch(booksEntity.actions.removeOne(book.id));
   }
 }
