@@ -7,7 +7,6 @@ header {
 
 header {
   background-color: purple;
-  padding: 10px;
   color: white;
   .title {
     font-size: 18px;
@@ -17,14 +16,10 @@ header {
     .nav-item {
       padding: 10px;
       border-radius: 5px;
-      cursor: pointer;
-    }
-    .nav-item:hover {
-      background-color: #a424a4;
-      color: white;
     }
   }
 }
+header,
 main {
-  padding: 1rem 0;
+  padding: 1rem;
 }

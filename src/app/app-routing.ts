@@ -7,14 +7,4 @@ export const routes: Routes = [
     loadComponent: () =>
       import('./pages/books/books.component').then(m => m.BooksComponent),
   },
-  {
-    path: 'book/:id',
-    loadComponent: () =>
-      import('./pages/book/book.component').then(m => m.BookComponent),
-  },
-  {
-    path: 'authors',
-    loadComponent: () =>
-      import('./pages/authors/authors.component').then(m => m.AuthorsComponent),
-  },
 ];
