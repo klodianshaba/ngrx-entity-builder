@@ -6,7 +6,6 @@ import { authorsEntity, booksEntity } from '../../store/entities';
 import { BookModel } from '../../models/book.model';
 import { switchMap } from 'rxjs';
 import { AuthorModel } from '../../models/author.model';
-import { AsyncPipe } from '@angular/common';
 import { toSignal } from '@angular/core/rxjs-interop';
 
 @Component({
@@ -14,7 +13,6 @@ import { toSignal } from '@angular/core/rxjs-interop';
   templateUrl: './book.component.html',
   styleUrls: ['./book.component.scss'],
   standalone: true,
-  imports: [AsyncPipe],
 })
 export class BookComponent {
   book: Signal<BookModel | undefined>;
