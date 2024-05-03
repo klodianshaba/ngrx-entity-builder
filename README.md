@@ -2,10 +2,6 @@
 
 Ngrx utilities taking rid of complexity and boilerplate code
 
-## Quick Links
-
-[Demo](https://klodianshaba.github.io/ngrx-entity-builder/)
-
 ## CreateEntity
 
 Create entity generic function returns an object containing\
