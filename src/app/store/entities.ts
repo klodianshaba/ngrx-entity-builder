@@ -1,5 +1,5 @@
 import { createEntity } from '../../builder/create-entity';
-import { selectState } from './features';
+import { selectState } from './selectors';
 import { BookModel } from '../models/book.model';
 import { State } from './index';
 import { AdditionalModel } from '../models/additional.model';

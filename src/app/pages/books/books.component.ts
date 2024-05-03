@@ -1,9 +1,8 @@
-import { Component, Signal } from '@angular/core';
+import { Component, inject, Signal } from '@angular/core';
 import { booksEntity } from '../../store/entities';
 import { Store } from '@ngrx/store';
 import { State } from '../../store';
 import { BookModel } from '../../models/book.model';
-import { toSignal } from '@angular/core/rxjs-interop';
 import { MatButton, MatIconButton } from '@angular/material/button';
 import { MatRipple } from '@angular/material/core';
 import { NgClass } from '@angular/common';
@@ -17,9 +16,10 @@ import { MatIcon } from '@angular/material/icon';
   imports: [MatButton, MatRipple, NgClass, MatIconButton, MatIcon],
 })
 export class BooksComponent {
-  books: Signal<BookModel[] | undefined>;
-  constructor(private store: Store<State>) {
-    this.books = toSignal(this.store.select(booksEntity.selectors.selectAll));
+  store = inject(Store<State>);
+  books: Signal<BookModel[]>;
+  constructor() {
+    this.books = this.store.selectSignal(booksEntity.selectors.selectAll);
   }
   updateOne(book: BookModel) {
     const randomBook = this.getRandomBook();

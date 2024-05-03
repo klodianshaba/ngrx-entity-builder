@@ -1,9 +1,8 @@
-import { Component, Signal } from '@angular/core';
+import { Component, effect, inject, Signal } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { State } from './store';
 import { booksEntity } from './store/entities';
 import { booksDatasource } from './datasource/books-datasource';
-import { toSignal } from '@angular/core/rxjs-interop';
 import { RouterLink, RouterOutlet } from '@angular/router';
 
 @Component({
@@ -14,10 +13,11 @@ import { RouterLink, RouterOutlet } from '@angular/router';
   imports: [RouterOutlet, RouterLink],
 })
 export class AppComponent {
-  totalBooks: Signal<number | undefined>;
-  constructor(private store: Store<State>) {
-    this.totalBooks = toSignal(
-      this.store.select(booksEntity.selectors.selectTotal)
+  store = inject(Store<State>);
+  totalBooks: Signal<number>;
+  constructor() {
+    this.totalBooks = this.store.selectSignal(
+      booksEntity.selectors.selectTotal
     );
     this.loadBooks();
   }
