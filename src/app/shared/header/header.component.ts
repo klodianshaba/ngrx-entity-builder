@@ -17,8 +17,6 @@ export class HeaderComponent {
   store = inject(Store<State>);
   totalBooks: Signal<number>;
   constructor() {
-    this.totalBooks = this.store.selectSignal(
-      booksEntity.selectors.selectTotal
-    );
+    this.totalBooks = this.store.selectSignal(booksEntity.selectors.count);
   }
 }

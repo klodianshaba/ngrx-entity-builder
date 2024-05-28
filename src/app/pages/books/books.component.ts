@@ -29,7 +29,7 @@ export class BooksComponent {
   store = inject(Store<State>);
   books: Signal<BookModel[]>;
   constructor() {
-    this.books = this.store.selectSignal(booksEntity.selectors.selectAll);
+    this.books = this.store.selectSignal(booksEntity.selectors.all);
   }
   updateOne(book: BookModel) {
     const randomBook = this.getRandomBook();

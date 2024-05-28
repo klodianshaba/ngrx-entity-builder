@@ -18,6 +18,6 @@ export class BookComponent {
   books: Signal<BookModel[]>;
   book = computed(() => this.books().find(book => book.id == this.id()));
   constructor(private store: Store<State>) {
-    this.books = this.store.selectSignal(booksEntity.selectors.selectAll);
+    this.books = this.store.selectSignal(booksEntity.selectors.all);
   }
 }
