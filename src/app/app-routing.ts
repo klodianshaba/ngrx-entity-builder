@@ -7,4 +7,10 @@ export const routes: Routes = [
     loadComponent: () =>
       import('./pages/books/books.component').then(m => m.BooksComponent),
   },
+  {
+    path: 'book/:id',
+    loadComponent: () =>
+      import('./pages/book/book.component').then(m => m.BookComponent),
+  },
+  { path: '**', redirectTo: 'books', pathMatch: 'full' },
 ];

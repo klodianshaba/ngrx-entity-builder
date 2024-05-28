@@ -1,4 +1,4 @@
-import { Component, effect, inject, Signal } from '@angular/core';
+import { Component, inject, Signal } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { State } from './store';
 import { booksEntity } from './store/entities';

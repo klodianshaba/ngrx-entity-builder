@@ -5,4 +5,5 @@ export interface BookModel {
   year: number;
   pages: number;
   rating: number;
+  color: string;
 }

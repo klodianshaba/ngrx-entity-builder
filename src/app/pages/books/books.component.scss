@@ -1,26 +1,23 @@
 .books {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
   gap: 20px;
-  .book {
-    padding: 10px;
-    border-radius: 5px;
+  padding: 1rem;
+  .book,
+  .add-book {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    border-radius: 20px;
     cursor: pointer;
     transition: 0.3s;
     box-shadow: var(--mdc-protected-button-container-elevation-shadow);
+    height: 300px;
   }
   .book:hover {
-    transform: translateY(-5px);
+    transform: scale(0.9);
     box-shadow: var(--mdc-protected-button-hover-container-elevation-shadow);
-    background-color: rgb(194, 129, 192);
-    color: white;
-  }
-  .add-book {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-width: 50px;
-    min-height: 100px;
   }
 }

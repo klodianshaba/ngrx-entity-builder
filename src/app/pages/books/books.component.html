@@ -1,19 +1,18 @@
+<app-header></app-header>
 <div class="books">
   @for (book of books(); track book) {
-    <div matRipple class="book">
+    <div
+      class="book"
+      [style.view-transition-name]="'book-' + book.id"
+      [style.background-color]="book.color"
+      [routerLink]="['/book', book.id]">
       <div>
-        <strong> {{ book.title }}</strong>
+        <mat-icon> person </mat-icon>
       </div>
-      <div>{{ book.year }}</div>
-      <div>
-        <button mat-icon-button color="primary" (click)="updateOne(book)">
-          <mat-icon>edit</mat-icon>
-        </button>
-        <button mat-icon-button color="warn" (click)="removeOne(book)">
-          <mat-icon>delete</mat-icon>
-        </button>
-      </div>
+      <div>{{ book.title }}</div>
     </div>
   }
-  <div class="book add-book" (click)="addOne()"><mat-icon>add</mat-icon></div>
+  <div class="book add-book" (click)="addOne()">
+    <mat-icon>add</mat-icon>
+  </div>
 </div>
