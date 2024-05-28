@@ -23,6 +23,7 @@
     "@angular/router": "^18.0.0",
     "@ngrx/effects": "^17.2.0",
     "@ngrx/entity": "^17.2.0",
+    "@ngrx/signals": "^17.2.0",
     "@ngrx/store": "^17.2.0",
     "@ngrx/store-devtools": "^17.2.0",
     "rxjs": "~7.5.0",
