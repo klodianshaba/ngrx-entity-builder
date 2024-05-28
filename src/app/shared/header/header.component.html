@@ -1,0 +1,15 @@
+<header>
+  <div class="title">
+    @if (back()) {
+      <mat-icon [routerLink]="['books']">arrow_back</mat-icon>
+    }
+    <span [style.view-transition-name]="'toolbar-title'">
+      Ngrx Entity Builder
+    </span>
+  </div>
+
+  <div>
+    <span>({{ totalBooks() }})</span>
+    <span> Books</span>
+  </div>
+</header>

@@ -1,0 +1,21 @@
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  position: sticky;
+  top: 0;
+  background-color: white;
+  z-index: 2 !important;
+  height: 30px;
+  .title {
+    font-size: 18px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    mat-icon {
+      margin-right: 1rem;
+      cursor: pointer;
+    }
+  }
+}

@@ -1,0 +1,16 @@
+<app-header [back]="true"></app-header>
+
+@if (book()) {
+  <div
+    class="book"
+    [style.view-transition-name]="'book-' + id()"
+    [style.background-color]="book()?.color">
+    <div>
+      <mat-icon> person </mat-icon>
+    </div>
+    <span>
+      {{ book()?.title }}
+    </span>
+    <div>{{ book()?.pages }}</div>
+  </div>
+}
