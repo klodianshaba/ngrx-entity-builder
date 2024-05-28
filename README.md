@@ -99,28 +99,28 @@ That's it! we are all done 🚀
 
 ```typescript
 this.store.select(
-    entity.selectors.selectState
+    entity.selectors.state
 );
 this.store.select(
-    entity.selectors.selectEntities
+    entity.selectors.entities
 );
 this.store.select(
-    entity.selectors.selectAll
+    entity.selectors.all
 );
 this.store.select(
-    entity.selectors.selectIds
+    entity.selectors.select
 );
 this.store.select(
-    entity.selectors.selectTotal
+    entity.selectors.count
 );
 this.store.select(
-    entity.selectors.selectById(1)
+    entity.selectors.select(id)
 );
 this.store.select(
-    entity.selectors.selectByIds([1,2])
+    entity.selectors.selectMany(ids)
 );
 this.store.select(
-    entity.selectors.selectByPredicate(entity => entity.isActive)
+    entity.selectors.selectPredicate(entity => entity.isActive)
 );
 ```
 
@@ -147,14 +147,14 @@ this.store.dispatch(
 );
 this.store.dispatch(
     entity.actions.updateOne(
-        { id: 1, changes: entity }
+        { id, changes: entityPartial }
     )
 );
 this.store.dispatch(
     entity.actions.updateMany(
         [
-            { id: 1, changes: entity },
-            { id: 2, changes: entity }
+            { id, changes: entityPartial },
+            { id, changes: entityPartial }
         ]
     )
 );
@@ -170,7 +170,7 @@ this.store.dispatch(
 this.store.dispatch(
     entity.actions.mapOne(
         {
-          id: 1,
+          id,
           map: entity => {
               return { ...entity, title }
           }
@@ -185,10 +185,10 @@ this.store.dispatch(
     )
 );
 this.store.dispatch(
-    entity.actions.removeOne(1)
+    entity.actions.removeOne(id)
 );
 this.store.dispatch(
-    entity.actions.removeMany([1, 2])
+    entity.actions.removeMany(ids)
 );
 this.store.dispatch(
     entity.actions.removePredicate(entity => !entity.isActive)
