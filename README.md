@@ -2,6 +2,58 @@
 
 Ngrx utilities taking rid of complexity and boilerplate code
 
+# Ngrx Signals
+
+### EntityMethods
+
+Provides methods of an entity
+
+### EntityComputed
+
+Provides computed signals of an entity
+
+## Signal Store 
+
+```typescript
+export const todoStore = signalStore(
+  withEntities<TodoModel>(),
+  withMethods(store => entityMethods<TodoModel>(store)),
+  withComputed(store => entityComputed<TodoModel>(store))
+);
+```
+
+That's all about it! we are done 🚀
+
+## Using Todo Store
+
+```typescript
+todoStore = inject(todoStore);
+
+this.todoStore.set(todo); // set one entity
+this.todoStore.setMany(todos); // set many entities
+this.todoStore.setAll(todos); // set all entities
+this.todoStore.add(todo); // add one entity
+this.todoStore.addMany(todos); // add many entities
+this.todoStore.update(id, todoPartial); // update one entity
+this.todoStore.updateMany(ids, todoPartial); // update many entities
+this.todoStore.updateAll(todoPartial); // update all entities
+this.todoStore.updatePredicate(todo => todo.done, todoPartial); // update predicate entities
+this.todoStore.remove(id); // remove one entity
+this.todoStore.removeMany(ids); // remove many entities
+this.todoStore.removeAll(); // remove all entities
+this.todoStore.removePredicate(todo => !todo.done); // remove predicate entities
+
+this.todoStore.entities(); // get all entities
+this.todoStore.count(); // get entities count
+this.todoStore.ids(); // get entity ids
+this.todoStore.select(id)(); // select by id
+this.todoStore.selectMany(ids)(); // select by ids
+this.todoStore.selectPredicate(todo => todo.done)(); // select by predicate
+
+```
+
+# Ngrx Store
+
 ## CreateEntity
 
 Create entity generic function returns an object containing\
