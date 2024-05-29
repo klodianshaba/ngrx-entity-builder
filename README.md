@@ -2,17 +2,17 @@
 
 Ngrx utilities taking rid of complexity and boilerplate code
 
-# Ngrx Signals
+## Ngrx Signal Store
 
 ### EntityMethods
 
-Provides methods of an entity
+Provides methods for an entity
 
 ### EntityComputed
 
-Provides computed signals of an entity
+Provides computed signals for an entity
 
-## Signal Store 
+### Signal Store 
 
 ```typescript
 export const todoStore = signalStore(
@@ -22,9 +22,9 @@ export const todoStore = signalStore(
 );
 ```
 
-That's all about it! we are done 🚀
+That's all about it! 🚀
 
-## Using Todo Store
+### Store Methods
 
 ```typescript
 todoStore = inject(todoStore);
@@ -42,6 +42,12 @@ this.todoStore.remove(id); // remove one entity
 this.todoStore.removeMany(ids); // remove many entities
 this.todoStore.removeAll(); // remove all entities
 this.todoStore.removePredicate(todo => !todo.done); // remove predicate entities
+```
+
+### Store Signals
+
+```typescript
+todoStore = inject(todoStore);
 
 this.todoStore.entities(); // get all entities
 this.todoStore.count(); // get entities count
@@ -49,14 +55,13 @@ this.todoStore.ids(); // get entity ids
 this.todoStore.select(id)(); // select by id
 this.todoStore.selectMany(ids)(); // select by ids
 this.todoStore.selectPredicate(todo => todo.done)(); // select by predicate
-
 ```
 
-# Ngrx Store
+## Ngrx Store
 
-## CreateEntity
+### CreateEntity
 
-Create entity generic function returns an object containing\
+Create entity function returns an object containing\
 ✔ feature key\
 ✔ adapter\
 ✔ reducer\
@@ -71,7 +76,7 @@ export const entity = createEntity<State, EntityModel, AdditionalEntityModel>(
 );
 ```
 
-## State
+### State
 
 ```typescript
 export interface State {
@@ -83,7 +88,7 @@ export const reducers: ActionReducerMap<State> = {
 };
 ```
 
-## Provide Store
+### Provide Store
 
 ```typescript
 bootstrapApplication(AppComponent, {
@@ -95,7 +100,7 @@ bootstrapApplication(AppComponent, {
 
 That's it! we are all done 🚀
 
-## Using Entity Selectors 
+### Entity Selectors 
 
 ```typescript
 this.store.select(
@@ -124,7 +129,7 @@ this.store.select(
 );
 ```
 
-## Using Entity Actions
+### Entity Actions
 
 ```typescript
 this.store.dispatch(
