@@ -37,7 +37,7 @@ export class Component {
     this.todoStore.removePredicate(todo => todo.done); // remove predicate entities
   }
 
-  selectors() {
+  signals() {
     this.todoStore.entities(); // get all entities
     this.todoStore.count(); // get count
     this.todoStore.ids(); // get ids

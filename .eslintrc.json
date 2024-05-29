@@ -1,7 +1,6 @@
 {
   "root": true,
   "ignorePatterns": ["projects/**/*"],
-  "max-len": 80,
   "overrides": [
     {
       "files": ["*.ts"],
