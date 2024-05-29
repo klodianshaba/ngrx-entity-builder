@@ -1,4 +1,9 @@
-import { TodoModel } from './book.model';
+export interface TodoModel {
+  id: number;
+  title: string;
+  done: boolean;
+  active: boolean;
+}
 
 export const id: number = 1;
 export const ids: number[] = [1, 2];
@@ -6,32 +11,24 @@ export const todos: TodoModel[] = [
   {
     id: 1,
     title: 'kl',
-    authorId: 2,
-    year: 2024,
-    pages: 52,
-    rating: 3,
-    color: '#FFFFFF',
+    done: true,
+    active: true,
   },
 ];
 
 export const todo: TodoModel = {
   id: 1,
   title: 'kl',
-  authorId: 2,
-  year: 2024,
-  pages: 52,
-  rating: 3,
-  color: '#FFFFFF',
+  done: true,
+  active: true,
 };
 
 export const todoPartial: Partial<TodoModel> = {
   title: 'kl',
-  authorId: 2,
-  year: 2024,
+  done: true,
 };
 
 export const additionalPartial: Partial<TodoModel> = {
   title: 'kl',
-  authorId: 2,
-  year: 2024,
+  done: true,
 };
